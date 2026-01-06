@@ -55,7 +55,7 @@ def edit(id):
     conn.close()
     return render_template('edit.html', book=book)
 
-@app.route('/delete/<int:id>', methods=['POST'])
+@app.route('/delete/<int:id>', methods=['GET', 'POST'])
 def delete(id):
     conn = connect_db()
     conn.execute('DELETE FROM books WHERE id = ?', (id,))
